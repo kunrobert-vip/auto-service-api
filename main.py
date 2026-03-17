@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import health, customers, vehicles, workorders
+from app.routers import health, customers, vehicles, workorders, parts
 from app.core.database import Base, engine
 
 # adatbázis táblák létrehozása
@@ -14,6 +14,8 @@ app.include_router(health.router)
 app.include_router(customers.router)
 app.include_router(vehicles.router)
 app.include_router(workorders.router)
+app.include_router(parts.router)
+
 
 
 @app.get("/")
