@@ -1,5 +1,9 @@
 from fastapi import FastAPI
-from app.routers import health
+from app.routers import health, customers
+from app.core.database import Base, engine
+
+# adatbázis táblák létrehozása
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Auto Service API",
@@ -7,6 +11,7 @@ app = FastAPI(
 )
 
 app.include_router(health.router)
+app.include_router(customers.router)
 
 @app.get("/")
 def root():
