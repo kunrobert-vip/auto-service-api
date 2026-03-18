@@ -2,9 +2,8 @@ from fastapi import FastAPI
 from app.routers import (
     health, customers, vehicles, workorders,
     parts, workorder_parts, mechanics,
-    workorder_mechanics, calc, workorder_status
+    workorder_mechanics, calc, workorder_status, invoices
 )
-
 
 from app.core.database import Base, engine
 
@@ -26,6 +25,7 @@ app.include_router(mechanics.router)
 app.include_router(workorder_mechanics.router)
 app.include_router(calc.router)
 app.include_router(workorder_status.router)
+app.include_router(invoices.router)
 
 
 @app.get("/")
