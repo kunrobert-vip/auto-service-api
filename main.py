@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from app.routers import (
     health, customers, vehicles, workorders,
-    parts, workorder_parts, mechanics, workorder_mechanics, calc
+    parts, workorder_parts, mechanics,
+    workorder_mechanics, calc, workorder_status
 )
 
 
@@ -24,6 +25,7 @@ app.include_router(workorder_parts.router)
 app.include_router(mechanics.router)
 app.include_router(workorder_mechanics.router)
 app.include_router(calc.router)
+app.include_router(workorder_status.router)
 
 
 @app.get("/")
